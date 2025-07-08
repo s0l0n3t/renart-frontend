@@ -39,7 +39,8 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('prod/productlist');
+        const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
+        const response = await fetch(`${apiBaseUrl}/prod/productlist`);
         const text = await response.text();
         
         // Extract JSON from the HTML response

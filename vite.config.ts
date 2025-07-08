@@ -11,17 +11,15 @@ export default defineConfig({
   server: {
     proxy: {
       // API endpoint'leri için proxy ayarları
-      '/api': {
+      '/prod': {
         target: 'http://signalseek.xyz:8180', // API sunucu adresi
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, '/prod'), // /api önekini /prod'a çevir
+        rewrite: (path) => path.replace(/^\/prod/, ''), // /api önekini /prod'a çevir
+        headers:{
+          'Access-Control-Allow-Origin': '*',
+        },
         secure: false, // HTTPS kullanmıyorsanız
       },
-      // Diğer endpoint'ler için ek proxy kuralları
-      '/another-api': {
-        target: 'http://another-api.example.com',
-        changeOrigin: true,
-      }
     }
   },
   // Environment variables için ek yapılandırma
