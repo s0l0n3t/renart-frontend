@@ -1,5 +1,5 @@
 # Development stage
-FROM node:18-alpine as dev
+FROM node:20-alpine as dev
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
@@ -7,7 +7,7 @@ COPY . .
 CMD ["npm", "run", "dev"]
 
 # Production stage
-FROM node:18-alpine as builder
+FROM node:20-alpine as builder
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
