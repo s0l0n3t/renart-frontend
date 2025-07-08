@@ -40,7 +40,7 @@ function App() {
     const fetchProducts = async () => {
       try {
         const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
-        const response = await fetch(`${apiBaseUrl}/prod/productlist`);
+        const response = await fetch(`http://signalseek.xyz:8180/prod/productlist`);
         const text = await response.text();
         
         // Extract JSON from the HTML response
