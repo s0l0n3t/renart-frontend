@@ -38,7 +38,6 @@ function App() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
         const response = await fetch(`${import.meta.env.VITE_REACT_API_URL}/prod/productlist`);
         const text = await response.text();
         
