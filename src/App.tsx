@@ -35,12 +35,11 @@ function App() {
     { id: 2, color: '#D9D9D9', name: 'White Gold', key: 'white' },
     { id: 3, color: '#E1A4A9', name: 'Rose Gold', key: 'rose' }
   ];
-
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || '';
-        const response = await fetch(`http://signalseek.xyz:8180/prod/productlist`);
+        const response = await fetch(`${import.meta.env.VITE_REACT_API_URL}/prod/productlist`);
         const text = await response.text();
         
         // Extract JSON from the HTML response
